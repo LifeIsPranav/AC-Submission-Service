@@ -11,8 +11,10 @@ class submissionService {
   }
 
   async addSubmission(submission) {
+    const submission = this.submissionRepository.createSubmission(submission)
+    if(!submission) throw { message: "Not able to create Submission" }
     const response = await SubmissionProducer(submission)
-    return response
+    return { queueResponse: response , submission }
   }
   
 }
