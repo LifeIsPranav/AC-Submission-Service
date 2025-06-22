@@ -10,8 +10,8 @@ class submissionService {
     return 'poooooooooong'
   }
 
-  async addSubmission(submission) {
-    const submission = this.submissionRepository.createSubmission(submission)
+  async addSubmission(submissionPayload) {
+    const submission = await this.submissionRepository.createSubmission(submissionPayload)
     if(!submission) throw { message: "Not able to create Submission" }
     const response = await SubmissionProducer(submission)
     return { queueResponse: response , submission }
