@@ -8,6 +8,11 @@ async function pingRequest(req, res) {
   return { data: response }
 }
 
+async function createSubmission(req, res) {
+
+}
+
 module.exports = {
-  pingRequest
+  pingRequest,
+  createSubmission
 }
