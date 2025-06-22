@@ -1,8 +1,8 @@
 const fastifyPlugin = require('fastify-plugin')
-const testService = require('./testService')
+const submissionService = require('./submissionService')
 
 async function servicePlugin(fastify, options){
-  fastify.decorate('testService', new testService("InjectingRubbish"))
+  fastify.decorate('submissionService', new submissionService(this.submissionRepository))
   console.log("Service Plugin Invoked!")
   // console.log(fastify)
 }
